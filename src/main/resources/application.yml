@@ -1,0 +1,27 @@
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    ##com.mysql.jdbc.Driver
+    username: ekta_admin
+    password: password
+    url: jdbc:mysql://localhost:3306/jewel_us?serverTimezone=UTC
+    platform: mysql
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    show-sql: false
+    hibernate:
+      #generate-ddl: true
+      ddl-auto: none
+    database: mySQL
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false;
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+  #      dialect: org.hibernate.dialect.MySQL5Dialect
+  security:
+    user:
+      name: root
+      password: root
