@@ -5,14 +5,27 @@ import lombok.Data;
 @Data
 public class UserDto {
     private String email;
+    private String password;
     private String name;
     private String phone;
     private String address;
     private boolean active;
     private String role;
 
+    public UserDto(String email, String name, String password, String phone,
+                   String address, String role, boolean active){
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.active = active;
+        this.role = role;
+    }
+
     private UserDto(UserBuilder userBuilder){
         this.email = userBuilder.email;
+        this.password = userBuilder.password;
         this.name = userBuilder.name;
         this.phone = userBuilder.phone;
         this.address = userBuilder.address;
@@ -22,6 +35,7 @@ public class UserDto {
 
     public static class UserBuilder{
         private String email;
+        private String password;
         private String name;
         private String phone;
         private String address;
@@ -30,6 +44,11 @@ public class UserDto {
 
         public UserBuilder withEmail(String email){
             this.email = email;
+            return this;
+        }
+
+        public UserBuilder withPassword(String password){
+            this.password = password;
             return this;
         }
 
